@@ -1,0 +1,67 @@
+============================================================
+WVS WAVE 7 - DATA CLEANING REPORT
+============================================================
+
+Raw CSV observations        : 97,220
+After duplicate removal     : 96,926
+After range validation      : 96,926  (rows kept; invalid values set to NaN)
+
+------------------------------------------------------------
+VARIABLE DICTIONARY (final dataset)
+------------------------------------------------------------
+Variable                       Valid-range / categories            WVS Code
+----------------------------------------------------------------------
+life_satisfaction              1-10 (1=dissatisfied, 10=satisfied) Q49
+income                         1-10 (1=lowest, 10=highest)         Q288
+education                      0-8 (ISCED classification)          Q275
+employment                     1-8 (categorical - see codebook)    Q279
+financial_satisfaction         1-10 (1=dissatisfied, 10=satisfied) Q50
+financial_situation            1-5 (1=much worse, 5=much better)   Q286
+food_deprivation               1-4 (1=often, 4=never)              Q51
+medical_deprivation            1-4 (1=often, 4=never)              Q53
+cash_income_deprivation        1-4 (1=often, 4=never)              Q54
+shelter_deprivation            1-4 (1=often, 4=never)              Q55
+social_class                   1-5 (1=lower, 5=upper)              Q287
+sex                            1=Male, 2=Female (categorical)      Q260
+age                            Continuous (years)                  Q262
+
+------------------------------------------------------------
+MISSING VALUES BY VARIABLE (after cleaning)
+------------------------------------------------------------
+  B_COUNTRY                            0 missing  (  0.0%)  |   96,926 valid
+  B_COUNTRY_ALPHA                      0 missing  (  0.0%)  |   96,926 valid
+  life_satisfaction                  506 missing  (  0.5%)  |   96,420 valid
+  income                           2,946 missing  (  3.0%)  |   93,980 valid
+  education                        1,051 missing  (  1.1%)  |   95,875 valid
+  employment                       1,217 missing  (  1.3%)  |   95,709 valid
+  financial_satisfaction             615 missing  (  0.6%)  |   96,311 valid
+  financial_situation              2,925 missing  (  3.0%)  |   94,001 valid
+  food_deprivation                   504 missing  (  0.5%)  |   96,422 valid
+  medical_deprivation                611 missing  (  0.6%)  |   96,315 valid
+  cash_income_deprivation            609 missing  (  0.6%)  |   96,317 valid
+  shelter_deprivation                734 missing  (  0.8%)  |   96,192 valid
+  social_class                     5,528 missing  (  5.7%)  |   91,398 valid
+  sex                                 93 missing  (  0.1%)  |   96,833 valid
+  age                                506 missing  (  0.5%)  |   96,420 valid
+
+------------------------------------------------------------
+METHODOLOGICAL NOTES
+------------------------------------------------------------
+1. Employment (Q279) is CATEGORICAL; do not treat as continuous.
+   Use dummy/indicator variables in regression.
+2. Sex (Q260) is CATEGORICAL (Male/Female); dummy in regression.
+3. Education (Q275) is an ordered ISCED scale (0-8).
+   Can be treated as ordinal or as a set of dummies.
+4. Income (Q288) is an ordered income-position variable (1-10),
+   NOT a dollar-amount measure of wealth.
+5. Life satisfaction (Q49) is the dependent variable (1-10).
+6. Deprivation items (Q51, Q53, Q54, Q55) are coded 1-4:
+   higher values = LESS deprivation (4=never went without).
+   Consider reversing scale before interpretation.
+
+------------------------------------------------------------
+OUTPUT FILE
+------------------------------------------------------------
+  C:\Users\MyPC\3RDYR-CS\Midterm_Project\data\processed\wvs_analysis_ready.csv
+
+============================================================
